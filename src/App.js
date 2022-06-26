@@ -57,7 +57,7 @@ const App = () => {
   }, [formData]);
 
   return (
-    <Router>
+    <>
       <header>
         <h1>Bloomtech Eats</h1>
         <span className="header-buttons">
@@ -84,7 +84,7 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 };
 export default App;
