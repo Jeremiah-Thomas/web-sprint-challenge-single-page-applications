@@ -46,8 +46,8 @@ const App = () => {
 
     axios
       .post("https://reqres.in/api/orders", newOrder)
-      .then((res) => (order = { ...res.data }));
-
+      .then((res) => setOrders([...orders, res.data]));
+    console.log(orders);
     return order;
   };
 
@@ -75,8 +75,8 @@ const App = () => {
               disabled={disabled}
               error={error}
             />
-            {orders.map((order) => {
-              return <pre key={order.id}>{JSON.stringify(order)}</pre>;
+            {orders.map((item) => {
+              return <pre key={item.id}>{JSON.stringify(item)}</pre>;
             })}
           </>
         </Route>
