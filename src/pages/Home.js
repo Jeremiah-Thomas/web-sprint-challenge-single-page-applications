@@ -9,11 +9,11 @@ const Home = () => {
   ];
   return (
     <>
-      <section className="order-pizza">
+      <section className="pizza-order">
         <h1>Your favorite food, delivered while coding.</h1>
-        <a id="order-pizza" className="btn-to-order" href="/pizza">
+        <Link id="order-pizza" className="btn-to-order" to="/pizza">
           Pizza?
-        </a>
+        </Link>
       </section>
       <p>Other places near you</p>
       <section className="other">

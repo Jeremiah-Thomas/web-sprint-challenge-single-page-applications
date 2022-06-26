@@ -1,12 +1,13 @@
 import React from "react";
 
 const Form = (props) => {
-  const { formData, change, submit, disabled } = props;
+  const { formData, change, submit, disabled, error } = props;
   return (
     <form id="pizza-form" onSubmit={submit}>
       <span className="divider">
         <h2>Build Your Own Pizza</h2>
       </span>
+      {<p>{error}</p>}
       <label>
         Name
         <input
@@ -31,9 +32,9 @@ const Form = (props) => {
         <option value="default" disabled>
           -- Select a Size --
         </option>
-        <option value="large">Large</option>
-        <option value="medium">Medium</option>
-        <option value="small">Small</option>
+        <option value="Large">Large</option>
+        <option value="Medium">Medium</option>
+        <option value="Small">Small</option>
       </select>
       <span className="divider">
         <h2>Add Toppings</h2>

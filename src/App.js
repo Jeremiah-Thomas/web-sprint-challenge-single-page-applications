@@ -5,6 +5,7 @@ import axios from "axios";
 import Form from "./components/Form";
 import Home from "./pages/Home";
 import schema from "./validation/formSchema";
+import { createMemoryHistory } from "history";
 
 const initialFormData = {
   name: "",
@@ -20,6 +21,7 @@ const App = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [orders, setOrders] = useState([]);
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState("");
 
   const handleChange = (evt) => {
     setFormData({
@@ -50,6 +52,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    schema.validate(formData).catch((err) => setError(err.message));
     schema.isValid(formData).then((valid) => setDisabled(!valid));
   }, [formData]);
 
@@ -63,20 +66,21 @@ const App = () => {
         </span>
       </header>
       <Switch>
-        <Route path="/pizza">
+        <Route exact path="/pizza">
           <>
             <Form
               formData={formData}
               change={handleChange}
               submit={handleSubmit}
               disabled={disabled}
+              error={error}
             />
             {orders.map((order) => {
               return <pre key={order.id}>{JSON.stringify(order)}</pre>;
             })}
           </>
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>
