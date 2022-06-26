@@ -11,7 +11,7 @@ const Home = () => {
     <>
       <section className="order-pizza">
         <h1>Your favorite food, delivered while coding.</h1>
-        <Link id="order-pizza" className="btn-to-order" to="/form">
+        <Link id="order-pizza" className="btn-to-order" to="/pizza">
           Pizza?
         </Link>
       </section>

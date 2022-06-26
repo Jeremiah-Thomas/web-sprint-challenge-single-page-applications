@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Form from "./components/Form";
 import Home from "./pages/Home";
 
+const initialFormData = {
+  name: "",
+  size: "",
+  topping1: false,
+  topping2: false,
+  topping3: false,
+  topping4: false,
+  special: "",
+};
+
 const App = () => {
+  const [formData, setFormData] = useState(initialFormData);
   return (
     <Router>
       <header>
