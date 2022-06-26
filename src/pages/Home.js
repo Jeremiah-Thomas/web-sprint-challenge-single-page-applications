@@ -11,9 +11,9 @@ const Home = () => {
     <>
       <section className="order-pizza">
         <h1>Your favorite food, delivered while coding.</h1>
-        <Link id="order-pizza" className="btn-to-order" to="/pizza">
+        <a id="order-pizza" className="btn-to-order" href="/pizza">
           Pizza?
-        </Link>
+        </a>
       </section>
       <p>Other places near you</p>
       <section className="other">
